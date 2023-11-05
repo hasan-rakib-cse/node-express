@@ -29,6 +29,9 @@ app.get('/fruits/banana', (req, res) => {
 
 app.get('/users/:id', (req, res) => {
     const id = req.params.id; // Browser theke enter howa id ta nea aschi
+
+    // Browser Input: http://localhost:3001/users/5?sort=desc
+    console.log(req.query.sort) // Output:  Browser e je query parameter likhbo oita terminal e dekhabe.
     const name = users[id]; // Browser e je id sea search dibo array er oi element dekhabe.
     res.send({id, name});
     console.log(req.params); // terminal e dekhabe kon id dea call kortase. Browser e id likhe search dele terminal e dekhabe kon id dea call kortase
