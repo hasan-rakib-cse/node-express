@@ -8,6 +8,8 @@ const app = express(); // Creates an Express application. The express() function
 //     res.send('Thank You bery much')
 // }
 
+const users = ['rakib', 'rashel', 'rana', 'rimon', 'masum', 'hakkani']
+
 app.get('/', (req, res) => {
     const fruit = {
         product: 'Mango',
@@ -23,6 +25,13 @@ app.get('/fruits/banana', (req, res) => {
         quantity: 1000,
         price: 10000
     })
+})
+
+app.get('/users/:id', (req, res) => {
+    const id = req.params.id; // Browser theke enter howa id ta nea aschi
+    const name = users[id]; // Browser e je id sea search dibo array er oi element dekhabe.
+    res.send({id, name});
+    console.log(req.params); // terminal e dekhabe kon id dea call kortase. Browser e id likhe search dele terminal e dekhabe kon id dea call kortase
 })
 
 app.listen(3001, () => console.log('Listining to port 3001')); // application kon port dea run hobe seta bole dea.
