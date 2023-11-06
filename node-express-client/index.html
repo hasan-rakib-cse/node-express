@@ -29,6 +29,8 @@
     </div>
 
     <script>
+
+        // get data
         fetch('http://localhost:3001/users/5') // node er j url theke data pabo
         .then(res => res.json())
         .then(data => {
@@ -50,7 +52,7 @@
                 }
             })
             .then(res => res.json()) // get response from the server
-            // .then(data => console.log(data)) // see data in console of browser
+            .then(data => console.log(data)) // see data in console of browser
             .then(data => updateUser(data)) // see data in the browser
         })
 
