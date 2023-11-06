@@ -1,12 +1,14 @@
 const express = require('express'); // import er bodole require use hoy
 
-
+const cors = require('cors');
 
 const app = express(); // Creates an Express application. The express() function is a top-level function exported by the express module.
 
 // const rootCall = (req, res) => {
 //     res.send('Thank You bery much')
 // }
+
+app.use(cors()); // express cors middleware use 
 
 const users = ['rakib', 'rashel', 'rana', 'rimon', 'masum', 'hakkani']
 
@@ -32,6 +34,7 @@ app.get('/users/:id', (req, res) => {
 
     // Browser Input: http://localhost:3001/users/5?sort=desc
     console.log(req.query.sort) // Output:  Browser e je query parameter likhbo oita terminal e dekhabe.
+    console.log(req.query)
     const name = users[id]; // Browser e je id sea search dibo array er oi element dekhabe.
     res.send({id, name});
     console.log(req.params); // terminal e dekhabe kon id dea call kortase. Browser e id likhe search dele terminal e dekhabe kon id dea call kortase
